@@ -1,23 +1,26 @@
 import java.util.Scanner;
 
 public class Main {
+    public static String[] strings;
     public static void main(String[] args) {
+            //напишите тут ваш код
         Scanner scanner = new Scanner(System.in);
-        int sizeOfArray = scanner.nextInt();
-        int[] array = new int[sizeOfArray];
-
-        for (int i = 0; i < sizeOfArray; i++){
-            array[i] = scanner.nextInt();
-        }
-        int counter = 99999999;
-        for (int i = 0; i < sizeOfArray; i++){
-            for (int ii = 1; ii < sizeOfArray; ii++){
-                if (array[i] < array[ii] && array[i] <= counter){
-                    counter = array[i];
+        strings = new String[6];
+            for (int i = 0; i < strings.length; i++) {
+                    strings[i] = scanner.nextLine();
+            }
+        for (int i = 0; i < strings.length; i++) {
+            for (int ii = 1; ii < strings.length; ii++) {
+                if (strings[i] != null && strings[i].equalsIgnoreCase(strings[ii]) && i!= ii) {
+                    strings[i] = null;
+                    strings[ii] = null;
                     break;
                 }
             }
         }
-        System.out.println(counter);
+
+        for (String string : strings) {
+            System.out.print(string + ", ");
+        }
     }
 }
