@@ -1,26 +1,16 @@
-import java.util.Scanner;
-
 public class Main {
-    public static String[] strings;
-    public static void main(String[] args) {
-            //напишите тут ваш код
-        Scanner scanner = new Scanner(System.in);
-        strings = new String[6];
-            for (int i = 0; i < strings.length; i++) {
-                    strings[i] = scanner.nextLine();
-            }
-        for (int i = 0; i < strings.length; i++) {
-            for (int ii = 1; ii < strings.length; ii++) {
-                if (strings[i] != null && strings[i].equalsIgnoreCase(strings[ii]) && i!= ii) {
-                    strings[i] = null;
-                    strings[ii] = null;
-                    break;
-                }
-            }
-        }
+    public static int[][] MULTIPLICATION_TABLE;
 
-        for (String string : strings) {
-            System.out.print(string + ", ");
+    public static void main(String[] args) {
+        //напишите тут ваш код
+        MULTIPLICATION_TABLE = new int [10][10];
+        for (int i = 1; i < MULTIPLICATION_TABLE.length; i++) {
+            for (int ii = 1; ii < MULTIPLICATION_TABLE.length; ii++) {
+                MULTIPLICATION_TABLE[i][ii] = i * ii;
+                System.out.print(MULTIPLICATION_TABLE[i][ii]);
+                System.out.print(' ');
+            }
+            System.out.println();
         }
     }
 }
