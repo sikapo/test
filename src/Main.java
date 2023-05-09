@@ -1,16 +1,29 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Main {
-    public static int[][] MULTIPLICATION_TABLE;
+
+    public static int[] array = new int[21];
+    public static int valueStart = 10;
+    public static int valueEnd = 13;
 
     public static void main(String[] args) {
         //напишите тут ваш код
-        MULTIPLICATION_TABLE = new int [10][10];
-        for (int i = 1; i < MULTIPLICATION_TABLE.length; i++) {
-            for (int ii = 1; ii < MULTIPLICATION_TABLE.length; ii++) {
-                MULTIPLICATION_TABLE[i][ii] = i * ii;
-                System.out.print(MULTIPLICATION_TABLE[i][ii]);
-                System.out.print(' ');
-            }
-            System.out.println();
+        if (array.length % 2 == 0) {
+            Arrays.fill(array, 0, array.length/2, valueStart);
+            Arrays.fill(array, array.length/2, array.length, valueEnd);
         }
+        else {
+            int counter = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (counter < array.length/2) {
+                    counter++;
+                }
+            }
+            Arrays.fill(array, 0, counter + 1, valueStart);
+            Arrays.fill(array, counter + 1, array.length, valueEnd);
+        }
+        //
+        System.out.println(Arrays.toString(array));
     }
 }
